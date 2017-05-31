@@ -1,0 +1,51 @@
+<div class="content">
+	<div class="page-header">
+		<h1>Generate new</h1>
+	</div>
+
+	<div class="alert alert-danger" ng-show="genError.show">
+		<p>{{genError.message}}</p>
+	</div>
+
+	<form class="form-inline">
+		<div class="form-group">
+			<label>Count</label> <input type="text" class="form-control"
+				ng-model="amount" placeholder="6">
+		</div>
+		<button type="submit" class="btn btn-default"
+			ng-click="generate(amount)">Generate!</button>
+	</form>
+
+
+	<p></p>
+
+</div>
+
+<div class="content">
+	<div class="page-header">
+		<h1>Previous results</h1>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Numbers</th>
+				<th>Sorted Numbers</th>
+				<th>Changes</th>
+				<th>Millis</th>
+			</tr>
+		</thead>
+		<tbody ng-show="results > 0">
+			<tr ng-repeat="row in prevResults">
+				<td>{{ row.orgNumbers }}</td>
+				<td>{{ row.sorNumbers }}</td>
+				<td>{{ row.changes }}</td>
+				<td>{{ row.millis }}</td>
+			</tr>
+		</tbody>
+		<tbody ng-show="results === 0">
+			<tr>
+				<th colspan=5>{{ loadError.message }}</th>
+			</tr>
+		</tbody>
+	</table>
+</div>
